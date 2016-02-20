@@ -9770,7 +9770,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   width: 300px;
   max-width: 100%;
   margin: 0;
-  padding:12px 10px; }
+  padding:10px 10px; }
   .mdl-textfield .mdl-button {
     position: absolute;
     bottom: 20px; }
@@ -9826,7 +9826,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   pointer-events: none;
   position: absolute;
   display: block;
-  top: 16px;
+  top: 10px;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -9853,7 +9853,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     font-size: 12px; }
   .mdl-textfield__label:after {
     background-color: rgb(63,81,181);
-    bottom: 12px;
+    bottom: 4px;
     content: '';
     height: 2px;
     left: 20%;
@@ -9863,7 +9863,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     visibility: hidden;
     width: 10px; }
   .mdl-textfield.is-focused .mdl-textfield__label:after {
-    left: -10px;
+    left: -15px;
     visibility: visible;
     width: 100%; }
   .mdl-textfield.is-invalid .mdl-textfield__label:after {
