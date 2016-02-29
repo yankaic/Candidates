@@ -54,6 +54,25 @@ and open the template in the editor.
       width: 100%;
       top:8px;
     }
+
+    .others_links{
+        padding: 20px 5px 5px 2px;
+        font-size: 5px;
+      }
+      .left-side{
+        width: 50%;
+        float:left;
+        padding:  -10px;
+      }
+      .right-side{
+        width: 50%;
+        top: 0;
+        right: 0;
+        float: right;
+        text-align: right;
+        color: #2862FF;
+      }
+      
     .notify{
       padding: 20px;
       color: #fff; 
@@ -85,6 +104,19 @@ and open the template in the editor.
       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored button" value="submit">
         Entrar
       </button>
+
+      <div class="others_links">
+        <div class="left-side">
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+            <span class="mdl-checkbox__label">Permanecer</span>
+          </label></div>
+        <div class="right-side">
+          <label class="mdl-label">
+            
+            <span class="mdl-checkbox__label">Esqueceu?</span>
+          </label></div>
+      </div>
 
       <?php
       error_reporting(0);
