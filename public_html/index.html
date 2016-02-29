@@ -47,12 +47,29 @@ and open the template in the editor.
         border-radius: 5px;
         height: 40px;
       }
-      .textfield:focus{        
-        box-shadow:  0px 0px 2px #cccccc;
+      .mdl-js-textfield:focus{        
+        box-shadow:  1px 1px 3px #cccccc;
       }
       .button{
         width: 100%;
         top:8px;
+      }
+      .others_links{
+        padding: 20px 5px 5px 2px;
+        font-size: 5px;
+      }
+      .left-side{
+        width: 50%;
+        float:left;
+        padding:  -10px;
+      }
+      .right-side{
+        width: 50%;
+        top: 0;
+        right: 0;
+        float: right;
+        text-align: right;
+        color: #2862FF;
       }
 
     </style>
@@ -70,12 +87,24 @@ and open the template in the editor.
           <input class="mdl-textfield__input" type="password" id="sample1">
           <label class="mdl-textfield__label" for="sample1">senha</label>
         </div>
-        
+
         <!-- Colored raised button -->
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored button">
           Entrar
         </button>
       </form>
+      <div class="others_links">
+        <div class="left-side">
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+            <span class="mdl-checkbox__label">Permanecer</span>
+          </label></div>
+        <div class="right-side">
+          <label class="mdl-label">
+            
+            <span class="mdl-checkbox__label">Esqueceu?</span>
+          </label></div>
+      </div>
     </div>
   </body>
 </html>
