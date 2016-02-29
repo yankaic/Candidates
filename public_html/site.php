@@ -57,13 +57,8 @@ $logado = $_SESSION['login'];
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Candidates</span>
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="">Presidentes</a>
-                    <a class="mdl-navigation__link" href="">Governadores</a>
-                    <a class="mdl-navigation__link" href="">Senadores</a>
-                    <a class="mdl-navigation__link" href="">Deputados Federais</a>
-                    <a class="mdl-navigation__link" href="">Deputados Estaduais</a>
-                    <a class="mdl-navigation__link" href="">Prefeitos</a>
-                    <a class="mdl-navigation__link" href="">Vereadores</a>
+                    <a class="mdl-navigation__link" href="prefeitos.html">Prefeitos</a>
+                    <a class="mdl-navigation__link" href="vereadores.html">Vereadores</a>
                 </nav>
             </div>
             <main class="mdl-layout__content">
@@ -92,7 +87,10 @@ $logado = $_SESSION['login'];
                         </td>
                     </tr>
                     <tr>
-                        <td class="mdl-data-table__cell--non-numeric">HERZAO</td>
+                        <td class="mdl-data-table__cell--non-numeric">HERZAO</td><span>Herzem Gusmão</span>
+                            <span class="mdl-list__item-text-body">
+                                Radialista, atual deputado estadual pelo PMDB.
+                            </span>
                     </tr>
                     <tr>
                         <td class="mdl-data-table__cell--non-numeric">ABEL</td>
