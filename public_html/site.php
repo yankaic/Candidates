@@ -4,6 +4,9 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?
+include "conexao.php";
+?>
 <html>
     <head>
         <title>Candidates - Splash</title>
@@ -14,18 +17,17 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
-        <?php  
-/* verifica se existe uma sessão de usuário, para evitar que a página sea acessível pelo seu endereço direto. */
-session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-{
-    unset($_SESSION['login']);
-    unset($_SESSION['senha']);
-    header('location:index.php');
-    }
+        <?php
+        /* verifica se existe uma sessão de usuário, para evitar que a página sea acessível pelo seu endereço direto. */
+        session_start();
+        if ((!isset($_SESSION['username']) == true) and ( !isset($_SESSION['password']) == true)) {
+            unset($_SESSION['username']);
+            unset($_SESSION['password']);
+            header('location:login.php');
+        }
 
-$logado = $_SESSION['login'];
-?>
+        $logado = $_SESSION['username'];
+        ?>
     </head>
     <body>
         <style>
@@ -63,40 +65,78 @@ $logado = $_SESSION['login'];
             </div>
             <main class="mdl-layout__content">
                 <div class="page-content"><!-- Your content goes here --></div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="cadastro">
+                    <form method="post" action="incluir.php">
+                        <fieldset>
+                            <legend><b>Cadastro de Candidato</b></legend>
+                            <table width="500px">
+                                <tr>
+                                    <td>Nome:</td>
+                                    <td><input type="text" name="nome" size="40"></td>
+                                </tr>    
+                                <tr>
+                                    <td>Nascimento:</td>
+                                    <td><input type="text" name="nascimento" size="15"></td>
+                                </tr>
+                                <tr>
+                                    <td>Cargo:</td>
+                                    <td>
+                                        <input type="radio" name="cargo" value="1"> Prefeito
+                                        <input type="radio" name="cargo" value="2"> Vereador
+                                    </td>
+                                </tr>
+                                <?php
+                                $queryEstado = "select * from tb_estados order by nome";
+                                $resultF = mysql_query($queryEstado) or die(mysql_error());
+                                ?>
+                                <tr>
+                                    <td>Estado:</td>
+                                    <td>
+                                        <select name="estado">
+                                            <?php
+                                            while ($row = mysql_fetch_array($resultF)) {
+                                                ?>
+                                                <option value="<? echo $row['id']; ?>"><? echo $row['nome']; ?></option>
+                                            <? } ?>
+                                        </select>        
+                                    </td>
+                                    <?php
+                                    $queryPartido = "select * from tb_partidos order by sigla";
+                                    $resultP = mysql_query($queryPartido) or die(mysql_error());
+                                    ?>
+                                    <td>Partido:</td>
+                                    <td>
+                                        <select name="partido">
+                                            <?php
+                                            while ($row = mysql_fetch_array($resultP)) {
+                                                ?>
+                                                <option value="<? echo $row['id']; ?>"><? echo $row['sigla']; ?></option>
+                                            <? } ?>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Numero:</td>
+                                    <td><input type="text" name="numero" size="15"></td>
+                                </tr>
+                                <tr>
+                                    <td>Cidade:</td>
+                                    <td><input type="text" name="cidade" size="15"></td>
+                                </tr>
+                            </table>    
+                        </fieldset>
+                        <input type="submit" value="Salvar Candidato"/>
+                        <input type="reset" value="Limpar Dados"/>
+                        <br>
+                        <br>
+                    </form>
+                </div>
             </main>
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="table">
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                <thead>
-                    <tr>
-                        <th class="mdl-data-table__cell--non-numeric">Candidato</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric"><span>Guilherme</span>
-                            <span class="mdl-list__item-text-body">
-                                Guilherme Menezes é o atual prefeito de Vitória da Conquista.
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">HERZAO</td><span>Herzem Gusmão</span>
-                            <span class="mdl-list__item-text-body">
-                                Radialista, atual deputado estadual pelo PMDB.
-                            </span>
-                    </tr>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">ABEL</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </body>
 </html>

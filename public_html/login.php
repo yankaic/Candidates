@@ -125,8 +125,8 @@ and open the template in the editor.
       {
         echo '<div class="\'notify" not-fail\'="">Login ou senha incorretos. Tente novamente!</div>';
       }
-      else{};
-      ?>
+      else{}
+?>
     </form>
   </div>
 </body>

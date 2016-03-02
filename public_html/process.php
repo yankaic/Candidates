@@ -20,7 +20,7 @@ if(mysql_num_rows ($result) > 0 )
 {
 $_SESSION['username'] = $username;
 $_SESSION['password'] = $password;
-header('location:/Candidates/public_html/title.html');
+header('location:/Candidates/public_html/site.php');
 }
 else{
 	error_reporting(0);
