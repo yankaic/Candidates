@@ -90,7 +90,7 @@ and open the template in the editor.
     <div class="image">
       <img src="img/user_icon.png">
     </div>
-    <form action="process.php" method="post">
+    <form action="processaLogin.php" method="post">
       <div class="mdl-textfield mdl-js-textfield textfield">
         <input class="mdl-textfield__input" type="text" id="sample1" name="username"> 
         <label class="mdl-textfield__label" for="sample1">login</label>

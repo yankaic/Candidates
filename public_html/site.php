@@ -14,7 +14,29 @@ include "conexao.php";
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./material.css">
         <script src="./material.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script type="text/javascript">
+            //jQuery 
+            $(function () {
+                $('#cod_estados').change(function () {
+                    if ($(this).val()) {
+                        $('#cod_cidades').hide();
+                        $('.carregando').show();
+                        $.getJSON('cidades.ajax.php?search=', {cod_estados: $(this).val(), ajax: 'true'}, function (j) {
+                            var options = '<option value=""></option>';
+                            for (var i = 0; i < j.length; i++) {
+                                options += '<option value="' + j[i].cod_cidades + '">' + j[i].nome + '</option>';
+                            }
+                            $('#cod_cidades').html(options).show();
+                            $('.carregando').hide();
+                        });
+                    } else {
+                        $('#cod_cidades').html('<option value="">-- Escolha um estado --</option>');
+                    }
+                });
+            });
+        </script>           
 
 
         <?php
@@ -30,6 +52,7 @@ include "conexao.php";
         ?>
     </head>
     <body>
+
         <style>
             .table {
                 position: absolute;
@@ -78,55 +101,58 @@ include "conexao.php";
                                 <tr>
                                     <td>Nome:</td>
                                     <td><input type="text" name="nome" size="40"></td>
-                                </tr>    
-                                <tr>
-                                    <td>Nascimento:</td>
-                                    <td><input type="text" name="nascimento" size="15"></td>
                                 </tr>
                                 <tr>
                                     <td>Cargo:</td>
                                     <td>
-                                        <input type="radio" name="cargo" value="1"> Prefeito
-                                        <input type="radio" name="cargo" value="2"> Vereador
+                                        <input type="radio" name="cargo" value="Prefeito"> Prefeito
+                                        <input type="radio" name="cargo" value="Vereador"> Vereador
                                     </td>
                                 </tr>
                                 <?php
-                                $queryEstado = "select * from tb_estados order by nome";
+                                $queryEstado = "SELECT cod_estados, sigla FROM estados ORDER BY sigla";
                                 $resultF = mysql_query($queryEstado) or die(mysql_error());
                                 ?>
                                 <tr>
-                                    <td>Estado:</td>
+                                    <td><label for="cod_estados">Estado:</label></td>
                                     <td>
-                                        <select name="estado">
+                                        <select name="cod_estados" id="cod_estados">
+                                            <option value=""></option>
                                             <?php
-                                            while ($row = mysql_fetch_array($resultF)) {
-                                                ?>
-                                                <option value="<? echo $row['id']; ?>"><? echo $row['nome']; ?></option>
-                                            <? } ?>
+                                            while ($row = mysql_fetch_assoc($resultF)) {
+                                                echo '<option value="' . $row['cod_estados'] . '">' . $row['sigla'] . '</option>';
+                                            }
+                                            ?>
                                         </select>        
                                     </td>
-                                    <?php
-                                    $queryPartido = "select * from tb_partidos order by sigla";
-                                    $resultP = mysql_query($queryPartido) or die(mysql_error());
-                                    ?>
-                                    <td>Partido:</td>
+                                <tr>
+                                    <td><label for="cod_cidades">Cidade:</label></td>
                                     <td>
-                                        <select name="partido">
-                                            <?php
-                                            while ($row = mysql_fetch_array($resultP)) {
-                                                ?>
-                                                <option value="<? echo $row['id']; ?>"><? echo $row['sigla']; ?></option>
-                                            <? } ?>
+                                        <select name="cod_cidades" id="cod_cidades" >
+                                            <option value="">-- Escolha o estado --</option> 
                                         </select>
                                     </td>
+                                </tr>
+                                
+                                <?php
+                                $queryPartido = "select * from tb_partidos order by sigla";
+                                $resultP = mysql_query($queryPartido) or die(mysql_error());
+                                ?>
+                                
+                                <td>Partido:</td>
+                                <td>
+                                    <select name="partido">
+                                        <?php
+                                        while ($row = mysql_fetch_array($resultP)) {
+                                            ?>
+                                            <option value="<? echo $row['id']; ?>"><? echo $row['sigla']; ?></option>
+                                        <? } ?>
+                                    </select>
+                                </td>
                                 </tr>
                                 <tr>
                                     <td>Numero:</td>
                                     <td><input type="text" name="numero" size="15"></td>
-                                </tr>
-                                <tr>
-                                    <td>Cidade:</td>
-                                    <td><input type="text" name="cidade" size="15"></td>
                                 </tr>
                             </table>    
                         </fieldset>
