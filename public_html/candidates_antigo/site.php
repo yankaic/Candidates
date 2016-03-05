@@ -151,8 +151,12 @@ include "conexao.php";
                                 </td>
                                 </tr>
                                 <tr>
-                                    <td>Numero:</td>
+                                    <td>Número:</td>
                                     <td><input type="text" name="numero" size="15"></td>
+                                </tr>
+                                <tr>
+                                    <td>Descrição (200 char):</td>
+                                    <td><input type="text" name="shortBio" size="150"></td>
                                 </tr>
                             </table>    
                         </fieldset>

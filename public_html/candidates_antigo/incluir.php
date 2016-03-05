@@ -13,9 +13,11 @@
         $estado = $_POST['cod_estados'];
         $numero = $_POST['numero'];
         $cidade = $_POST['cod_cidades'];
+        $shortBio = $_POST['shortBio'];
+
         $queryCandidato = "INSERT INTO tb_candidato 
                         VALUES(null,'$nome','$cargo','$numero','$cidade',
-                        '$estado','$partido')";
+                        '$estado','$partido',$short_bio)";
         mysql_query($queryCandidato) or die(mysql_error());
         if (mysql_affected_rows() == 1) {
 
@@ -26,6 +28,7 @@
             echo "<b>Cidade:</b> $cidade <br><br>";
             echo "<b>Estado:</b> $estado <br><br>";
             echo "<b>Partido:</b> $partido <br><br>";
+            echo "<b>Descrição:</b> $shortBio <br><br>";
             echo "Candidato Salvo com Sucesso...";
         }
         ?>

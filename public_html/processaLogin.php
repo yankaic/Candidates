@@ -19,13 +19,13 @@ if(mysql_num_rows ($result) > 0 )
 {
 $_SESSION['username'] = $username;
 $_SESSION['password'] = $password;
-header('location:/Candidates/public_html/site.php');
+header('location:pag_adm.html');
 }
 else{
 	error_reporting(0);
 	unset ($_SESSION['username']);
 	unset ($_SESSION['password']);
-	header('location:/Candidates/public_html/login.php?pg=erro_login');
+	header('location:login.php?pg=erro_login');
 	
 	}
 
