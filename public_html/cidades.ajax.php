@@ -16,8 +16,8 @@ $sql = "SELECT cod_cidades, nome
 $res = mysql_query($sql);
 while ($row = mysql_fetch_assoc($res)) {
     $cidades[] = array(
-        'cod_cidades' => (utf8_encode($row['nome'])),
-        'nome'        => (utf8_encode($row['nome'])),
+        'cod_cidades' => (htmlentities($row['nome'])),
+        'nome'        => (htmlentities($row['nome'])),
     );
 }
 
