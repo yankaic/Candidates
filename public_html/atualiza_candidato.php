@@ -1,7 +1,7 @@
 <?php
 $numero = $_POST["numero"];
 $nome = $_POST["nome"];
-$partido = $_POST["partido"];
+$partido = $_POST["id_partido"];
 $descricao = $_POST["descricao"];
 
 
@@ -10,7 +10,7 @@ $descricao = $_POST["descricao"];
 
 include "conexao.php";
 
-       $sql= mysql_query("update tb_candidato set nome='$nome', partido='$partido',descricao='$descricao' where 
+       $sql= mysql_query("update tb_candidato set nome='$nome', id_partido='$partido',descricao='$descricao' where 
 	numero='$numero' ");
 
 if (!$sql)

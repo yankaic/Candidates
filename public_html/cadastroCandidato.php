@@ -6,7 +6,8 @@ include "conexao.php"
     <meta charset="UTF-8">  
     <link rel="stylesheet" href="./material.css">
     <link rel="stylesheet" href="./materialize.css">
-    <script src="./material.js"></script>
+    <script src="./material.js"></script>    
+    <script src="./general_scripts.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
     <script type="text/javascript">
@@ -235,15 +236,13 @@ include "conexao.php"
               </div>
 
               <br>
-              <div class="input-field col s12">
-                <select>
-                  <option value="" disabled selected>Choose your option</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
-                </select>
-                <label>Materialize Select</label>
+
+              <div id="select-container" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="select" name="select" readonly />
+                <label class="mdl-textfield__label" for="select">Select your option</label>
               </div>
+
+
 
 
               <table size="50%">

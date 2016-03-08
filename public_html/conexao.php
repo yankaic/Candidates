@@ -13,15 +13,12 @@ $senha="";
 $banco="Candidates";
 
 // Estabelece  a Conexao com o Mysql
-$con = mysql_connect($caminho,$usuario,$senha);
-
+$con = mysql_connect($caminho,$usuario,$senha) or die (mysql_errno());
 
 // Seleciona a Base de Dados
 mysql_select_db($banco);
 
 // Tratamento UTF-8 do MYSQL
-mysql_query("SET NAMES 'utf8'");
-mysql_query('SET character_set_connection=utf8');
-mysql_query('SET character_set_client=utf8');
-mysql_query('SET character_set_results=utf8');
+mysql_query("SET NAMES 'utf-8'");
+mysql_set_charset('utf-8',$con);
 ?>

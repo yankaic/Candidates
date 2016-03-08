@@ -14,16 +14,16 @@ if($num_linhas!=0)
 {
 	$numero = mysql_result($result,0,0);
 	$nome = mysql_result($result,0,1);
-	$partido = mysql_result($result,0,2);
+	$partido = mysql_result($result,0,5);
 	$modalidade = mysql_result($result,0,4);
-	$descricao = mysql_result($result,0,7);
+	$descricao = mysql_result($result,0,6);
     
 	
 	
 	echo "<form method=\"POST\" action=\"atualiza_candidato.php\">";
 	echo "<p>Numero <input type=\"text\" name=\"numero\" value=\"$numero\" readonly=\"true\"></p>";
 	echo "<p>Nome <input type=\"text\" name=\"nome\" value=\"$nome\"></p>";
-	echo "<p>Partido <input type=\"text\" name=\"partido\" value=\"$partido\"></p>";
+	echo "<p>Partido <input type=\"text\" name=\"id_partido\" value=\"$partido\"></p>";
     echo "<p>Descricao <input type=\"text\" name=\"descricao\" value=\"$descricao\"></p>";
 
 	mysql_close($con);

@@ -11,6 +11,7 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./material.css">
     <script src="./material.js"></script>
+    <script src="./general_scripts.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
@@ -87,6 +88,16 @@ and open the template in the editor.
         width: 100%;
         background-color:#c9302c;
       }
+      
+      .blue_select{
+        color:blue;
+      }
+      .magenta-select{
+        color:magenta;
+      }
+      .green-color{
+        color:green;
+      }
 
     </style>
 
@@ -98,8 +109,29 @@ and open the template in the editor.
           <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation. We hide it in small screens. -->
+          <!-- Right aligned menu below button -->
+          <button id="demo-menu-lower-right"
+                  class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">format_color_fill</i>
+          </button>
+
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+              for="demo-menu-lower-right">
+            <li class="mdl-menu__item blue_select" >
+              <i class="material-icons">format_paint</i>   Azul</li>
+            <li class="mdl-menu__item magenta-select">
+              <i class="material-icons">format_paint</i>   Rosa</li> 
+            <li class="mdl-menu__item green-color">
+              <i class="material-icons">format_paint</i>   Verde</li>
+          </ul>
+
+          <a class="mdl-navigation__link" href=""></a>
+
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
                mdl-textfield--floating-label mdl-textfield--align-right">
+
+
+
             <label class="mdl-button mdl-js-button mdl-button--icon"
                    for="waterfall-exp">
               <i class="material-icons">search</i>
@@ -112,15 +144,15 @@ and open the template in the editor.
         </div>
       </header>
 
-          <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Candidates</span>
-            <nav class="mdl-navigation">
-              <a class="mdl-navigation__link"href="cadastroCandidato.php">Cadastro de Prefeito/Vereador</a><br>
-              <a class="mdl-navigation__link"href="pesquisa_candidato.html">Buscar Candidatos Cadastrados</a><br>
-              <a class="mdl-navigation__link"href="atualiza_candidato.html">Alterar dados do Candidato</a><br>
-              <a class="mdl-navigation__link"href="cadastro_partido.html">Cadastro de Partido</a><br>
-            </nav>
-          </div>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Candidates</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link"href="cadastroCandidato.php">Cadastro de Prefeito/Vereador</a><br>
+          <a class="mdl-navigation__link"href="pesquisa_candidato.html">Buscar Candidatos Cadastrados</a><br>
+          <a class="mdl-navigation__link"href="atualiza_candidato.html">Alterar dados do Candidato</a><br>
+          <a class="mdl-navigation__link"href="cadastro_partido.html">Cadastro de Partido</a><br>
+        </nav>
+      </div>
 
       <main class="mdl-layout__content">
         <div class="page-content">
