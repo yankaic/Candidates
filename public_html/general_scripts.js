@@ -1,17 +1,26 @@
-function general_scripts()
-{
-  this.start = function(){    
-    
-   $("#select").mdlselect({
-    value: ["0", "1", "2", "3"],
-    label: ["n/a", "Option 1", "Option 2", "Option 2"],
-    fixedHeight: '10em'
-  });
+"use strict";
+function general_scripts(){
+  function onChangeTheme()
+  {
+    $("#magentaColor").click(function(){
+    });
+  }
   
+  function setTheme(theme)
+  {
+    $("#theme-style").attr("href", "themes/" + theme + ".css");
+  }
+
+  this.start = function(){
+
+    onChangeTheme();
+
+    setTheme("green");
+
   };
 }
 
-$(function () {
+$(function(){
   window.app = new general_scripts();
-  window.app.start();
+  window.app.start();  
 });

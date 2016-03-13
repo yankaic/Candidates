@@ -19,7 +19,7 @@ if(mysql_num_rows ($result) > 0 )
 {
 $_SESSION['username'] = $username;
 $_SESSION['password'] = $password;
-header('location:pag_adm.html');
+header('location:pesquisa_candidato.php');
 }
 else{
 	error_reporting(0);

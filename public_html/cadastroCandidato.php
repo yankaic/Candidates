@@ -201,10 +201,8 @@ include "conexao.php"
         <div class="page-content">
           <br><br>
 
-          <div class="demo-card-square mdl-card mdl-shadow--2dp mdl-card-form"><?php
-            $queryPartido = "select * from tb_partidos order by sigla";
-            $resultP = mysql_query($queryPartido);
-            ?>
+          <div class="demo-card-square mdl-card mdl-shadow--2dp mdl-card-form">
+
             <form name="pag_cadastro" method ="post" action="cad-candidato.php" onsubmit="return valida(this)">
 
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -215,7 +213,7 @@ include "conexao.php"
 
 
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="num_candidato">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="num_candidato" name="num_candidato">
                 <label class="mdl-textfield__label" for="num_candidato">Número</label>
                 <span class="mdl-textfield__error">Não pode conter letras ou dígitos!</span>
               </div>
@@ -225,27 +223,72 @@ include "conexao.php"
                 <span class="mdl-radio__label">Modalidade:    </span>
 
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-prefeito">
-                  <input type="radio" id="option-prefeito" class="mdl-radio__button" name="modalidade" value="1" checked>
+                  <input type="radio" id="option-prefeito" class="mdl-radio__button" name="modalidade" value="prefeito" checked>
                   <span class="mdl-radio__label">Prefeito</span>
                 </label>
 
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-vereador">
-                  <input type="radio" id="option-vereador" class="mdl-radio__button" name="modalidade" value="2">
+                  <input type="radio" id="option-vereador" class="mdl-radio__button" name="modalidade" value="vereador">
                   <span class="mdl-radio__label">Vereador</span>
                 </label>
               </div>
+              <br>
+              <?php
+              $queryPartido = "select * from tb_partidos order by sigla";
+              $resultP = mysql_query($queryPartido);
+              ?>
 
+              <?php
+              $queryEstado = "SELECT cod_estados, sigla FROM estados ORDER BY sigla";
+              $resultF = mysql_query($queryEstado) or die(mysql_error());
+              ?>
+
+              <label for="cod_estados">Estado:</label>
+
+              <select name="cod_estados" id="cod_estados">
+                <option value=""></option>
+                <?php
+                while ($row = mysql_fetch_assoc($resultF)) {
+                  echo '<option value="' . $row['cod_estados'] . '">' . $row['sigla'] . '</option>';
+                }
+                ?>
+              </select>      
+
+
+              <label for="cod_cidades">Cidade:</label>
+
+              <select name="cod_cidades" id="cod_cidades" >
+                <option value="">-- Escolha o estado --</option> 
+              </select>
               <br>
 
-              <div id="select-container" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="select" name="select" readonly />
-                <label class="mdl-textfield__label" for="select">Select your option</label>
+              Sigla do Partido
+
+              <select name="partido">
+                <?php
+                while ($row = mysql_fetch_array($resultP)) {
+                  ?>
+                  <option value="<?php echo $row['id']; ?>"><?php echo $row['sigla']; ?></option>
+                <?php } ?>
+              </select>
+              <br>
+
+
+              <!-- Floating Multiline Textfield -->
+              <div class="mdl-textfield mdl-js-textfield">
+                <textarea class="mdl-textfield__input" type="text" rows= "3" id="descricao_candidato" name="descricao_candidato" ></textarea>
+                <label class="mdl-textfield__label" for="descricao_candidato">Descrição...</label>
               </div>
 
+              <br>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored button" value="submit">
+                Cadastrar
+              </button>
 
 
 
-              <table size="50%">
+
+<!--              <table size="50%">
                 <tr>
                   <td align="right">
                     Modalidade
@@ -268,10 +311,10 @@ include "conexao.php"
                     <input type="text" name="num_candidato">
                   </td>
                 </tr>
-                <?php
-                $queryEstado = "SELECT cod_estados, sigla FROM estados ORDER BY sigla";
-                $resultF = mysql_query($queryEstado) or die(mysql_error());
-                ?>
+              <?php
+              $queryEstado = "SELECT cod_estados, sigla FROM estados ORDER BY sigla";
+              $resultF = mysql_query($queryEstado) or die(mysql_error());
+              ?>
                 <tr>
                   <td align="right">
                     <label for="cod_estados">Estado:</label>
@@ -279,11 +322,7 @@ include "conexao.php"
                   <td>
                     <select name="cod_estados" id="cod_estados">
                       <option value=""></option>
-                      <?php
-                      while ($row = mysql_fetch_assoc($resultF)) {
-                        echo '<option value="' . $row['cod_estados'] . '">' . $row['sigla'] . '</option>';
-                      }
-                      ?>
+              
                     </select>        
                   </td>
                 <tr>
@@ -301,11 +340,7 @@ include "conexao.php"
                     Sigla do Partido
                   </td><td>
                     <select name="partido">
-                      <?php
-                      while ($row = mysql_fetch_array($resultP)) {
-                        ?>
-                        <option value="<?php echo $row['id']; ?>"><?php echo $row['sigla']; ?></option>
-                      <?php } ?>
+             
                     </select>
                   </td>
                 </tr>
@@ -330,11 +365,10 @@ include "conexao.php"
                   </td>
                 </tr>
               </table>
-            </form></div></div>
+            </form></div></div>-->
+          </div>
+        </div>
       </main>
     </div>
-
-
-
   </body>
 </html>

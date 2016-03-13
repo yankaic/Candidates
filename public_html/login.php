@@ -9,9 +9,9 @@ and open the template in the editor.
     <title>Candidates - Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./material.css">
+    <link id="theme-style" rel="stylesheet" href="./themes/blue.css">
     <script src="./material.js"></script>
-    <script src="./general_scripts.js"></script>
+    <script src="./scripts/theme_script.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
@@ -100,7 +100,7 @@ and open the template in the editor.
       }
 
     </style>
-
+    
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
@@ -117,9 +117,9 @@ and open the template in the editor.
 
           <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
               for="demo-menu-lower-right">
-            <li class="mdl-menu__item blue_select" >
+            <li class="mdl-menu__item blue_select" id="blueColor" >
               <i class="material-icons">format_paint</i>   Azul</li>
-            <li class="mdl-menu__item magenta-select">
+            <li class="mdl-menu__item magenta-select"id="magentaColor">
               <i class="material-icons">format_paint</i>   Rosa</li> 
             <li class="mdl-menu__item green-color">
               <i class="material-icons">format_paint</i>   Verde</li>
@@ -205,5 +205,6 @@ and open the template in the editor.
           </div>
         </div>
       </main>
+    </div>
   </body>
 </html>
