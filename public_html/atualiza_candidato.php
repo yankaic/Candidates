@@ -1,6 +1,6 @@
 <?php
-$numero = $_POST["numero"];
 $nome = $_POST["nome"];
+$numero = $_POST["numero"];
 $partido = $_POST["id_partido"];
 $descricao = $_POST["descricao"];
 

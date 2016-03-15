@@ -169,7 +169,7 @@ include "conexao.php"
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span class="mdl-layout-title">Candidates</span>
+          <span class="mdl-layout-title">Cadastro de Candidato</span>
           <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation. We hide it in small screens. -->
@@ -191,7 +191,6 @@ include "conexao.php"
         <span class="mdl-layout-title">Candidates</span>
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link"href="cadastroCandidato.php">Cadastro de Prefeito/Vereador</a><br>
-          <a class="mdl-navigation__link"href="pesquisa_candidato.html">Buscar Candidatos Cadastrados</a><br>
           <a class="mdl-navigation__link"href="atualiza_candidato.html">Alterar dados do Candidato</a><br>
           <a class="mdl-navigation__link"href="cadastro_partido.html">Cadastro de Partido</a><br>
         </nav>
